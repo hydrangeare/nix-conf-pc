@@ -45,8 +45,6 @@ in
 
   environment.pathsToLink = [ "/libexec" ];
 
-  services.flatpak.enable = true;
-  
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -101,7 +99,7 @@ in
   services.libinput.enable = true;
  
   users.defaultUserShell = pkgs.zsh;
-  programs.zsh.shellInit = "neofetch";
+  programs.zsh.shellInit = "fastfetch";
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
   
@@ -125,7 +123,12 @@ in
     driSupport32Bit = true;
   };  
   
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
   systemd.tmpfiles.rules = [
+  
       "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
   
@@ -143,7 +146,7 @@ in
 	git
 	#unstable.osu-lazer-bin
 	osu-lazer-bin
-	neofetch
+	fastfetch
 	zsh
 	keepassxc
 	gparted
