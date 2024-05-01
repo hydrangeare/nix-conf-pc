@@ -1,1 +1,1 @@
-My nix config
+My laptop nix config
