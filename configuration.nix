@@ -15,7 +15,6 @@ in
       ./modules/hyprland.nix
     ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
@@ -23,7 +22,7 @@ in
   boot.initrd.kernelModules = [ "amdgpu" ];
 
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ]; 
   networking.networkmanager.enable = true;
 
@@ -49,20 +48,20 @@ in
   services.flatpak.enable = true;
   
   fonts = {
-  	enableDefaultPackages = true;
-	 packages = with pkgs; [
-		(nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
-		fira-code
-		fira-code-symbols
-		font-awesome
-		liberation_ttf
-		mplus-outline-fonts.githubRelease
-		nerdfonts
-		noto-fonts
-		noto-fonts-emoji
-		ubuntu_font_family
-		vazir-fonts
-	 ];
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
+      fira-code
+      fira-code-symbols
+      font-awesome
+      liberation_ttf
+      mplus-outline-fonts.githubRelease
+      nerdfonts
+      noto-fonts
+      noto-fonts-emoji
+      ubuntu_font_family
+      vazir-fonts
+    ];
   };
   
   environment.sessionVariables = {
@@ -82,7 +81,6 @@ in
       enable = true;
       powerOnBoot = true;
       package = pkgs.bluez5-experimental;
-      # settings.Policy.AutoEnable = "true";
       settings.General.Enable = "Source,Sink,Media,Socket";
    };
    services.blueman.enable = true;
@@ -152,11 +150,8 @@ in
 	unityhub
 	jetbrains.rider
 	dotnet-sdk_8
-	dotnet-sdk_7
-	dotnet-runtime_7
 	dotnet-runtime_8
 	dotnet-aspnetcore_8
-	dotnet-aspnetcore_7
 	dotnetPackages.Nuget
 	msbuild
 	opentabletdriver
@@ -171,8 +166,6 @@ in
 	blender-hip
 	blueman
 	obs-studio
-	emacsPackages.dotnet
-	clinfo
 	v2ray
 	gh
 	xwayland
@@ -182,17 +175,12 @@ in
 	bluetuith
 	spotify
 	evince
-	calibre
 	libsForQt5.qt5.qtwayland
 	libsForQt5.qt5ct
 	armcord
-	libva
-	sublime
-	protonvpn-cli
 	upower
 	qt6.qtwayland
 	xfce.thunar
-	micro
 	wireguard-tools
 	grimblast
 	lf
@@ -200,14 +188,11 @@ in
 	python3
 	krita
 	imv
-	flatpak
 	unzip
 	p7zip
 	bottles
 	pureref
-	libsForQt5.polkit-kde-agent
 	#OPTIONAL
-	pkg-config
 	waybar-mpris
 	ani-cli
 	#Hyprland
@@ -225,7 +210,6 @@ in
 	xdg-desktop-portal-wlr
 	dunst
 	hyprpicker
-	libsForQt5.polkit-kde-agent
 	swww
 	libnotify
 	w3m

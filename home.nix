@@ -22,14 +22,14 @@
       '';
     };
     
-    xdg.desktopEntries = {
-    	discord = {
-    		name = "Discord";
-    		genericName = "idk video messenger";
-    		exec = "discord  --enable-features=UseOzonePlatform --ozone-platform=wayland"; 	
-    		terminal = false;
-    	};	
-    };
+#    xdg.desktopEntries = {
+#    	discord = {
+#    		name = "Discord";
+#    		genericName = "idk video messenger";
+#    		exec = "discord  --enable-features=UseOzonePlatform --ozone-platform=wayland"; 	
+#    		terminal = false;
+#    	};	
+#    };
     
     gtk.enable = true;
     gtk.theme.package = pkgs.graphite-gtk-theme;
