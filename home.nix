@@ -3,11 +3,7 @@
   {
     home.stateVersion = "23.11"; 
 
-    home.file."p10k.zsh" = {
-      source = ./.p10k.zsh;
-     executable = true;
-    };
-
+    home.file."config/p10k".source = ./dots/p10k;
     home.file."config/dunstrc".source = ./dots/dunst;
     home.file."config/tofi".source = ./dots/tofi;
     home.file."config/waybar".source = ./dots/waybar;
