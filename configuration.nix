@@ -153,6 +153,7 @@ in
 	unityhub
 	jetbrains.rider
 	dotnet-sdk_8
+	houdini	
 	dotnet-runtime_8
 	dotnet-aspnetcore_8
 	dotnetPackages.Nuget
