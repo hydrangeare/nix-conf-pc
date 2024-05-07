@@ -13,4 +13,6 @@
   	wantedBy = [ "default.target" ];
   	
   };
+
+  systemd.oomd.enable = true;
 }
