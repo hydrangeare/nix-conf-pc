@@ -220,7 +220,7 @@ in
 	xdotool
 	networkmanagerapplet
 	hypridle
-	(pkgs.waybar.overrideAttrs (oldAttrs: {
+	(waybar.overrideAttrs (oldAttrs: {
 		mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];	
 	}))
 	wl-color-picker

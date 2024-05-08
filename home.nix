@@ -13,6 +13,10 @@
     home.file."config/waybar".source = ./dots/waybar;
     home.file."config/alacritty".source = ./dots/alacritty;
     home.file."config/hyprland".source = ./dots/hypr;
+    home.file."config/nixpkgs".source = ./dots/nixpkgs;
+    home.file."config/fastfetch".source = ./dots/fastfetch;
+    home.file."config/kitty".source = ./dots/kitty;
+    
 
     home.activation = {
       # https://github.com/philj56/tofi/issues/115#issuecomment-1701748297
