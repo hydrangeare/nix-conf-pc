@@ -8,7 +8,7 @@
 
   virtualisation.libvirtd.enable = true;
 
-    services.thermald.enable = true;
+  services.thermald.enable = true;
 
   services.tlp = {
         enable = true;
@@ -35,6 +35,7 @@
   powerManagement.cpuFreqGovernor = "ondemand";
 
   services.upower.usePercentageForPolicy = true;
+  programs.light.enable = true;
 
   # powerManagement.powertop.enable = true;
   #

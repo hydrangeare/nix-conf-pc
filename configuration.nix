@@ -10,7 +10,10 @@ in
       inputs.home-manager.nixosModules.default
       ./modules/nvim/nvim-modules.nix
       ./modules/systemd.nix
-      ./modules/power_managment.nix
+      ./modules/laptop/power_managment.nix
+      ./modules/laptop/hardware.nix
+      ./modules/laptop/bluetooth.nix
+      ./modules/audio.nix
       ./modules/udev.nix
       ./modules/hyprland.nix
     ];
@@ -24,7 +27,7 @@ in
 
   networking.hostName = "nixos";
   networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ]; 
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true; #this 
 
 
   time.timeZone = "Europe/Moscow";
@@ -70,39 +73,14 @@ in
     
 
   hardware.opentabletdriver.enable = true;
-  # Enable CUPS to print documents.
+
   services.printing.enable = true;
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  hardware.bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      package = pkgs.bluez5-experimental;
-      settings.General.Enable = "Source,Sink,Media,Socket";
-   };
-   services.blueman.enable = true;
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-
-  };
-
-  programs.noisetorch.enable = true;
-  programs.light.enable = true;
-  
   services.libinput.enable = true;
  
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.shellInit = "fastfetch";
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
-  
 
   users.users.${user} = {
     isNormalUser = true;
@@ -113,16 +91,6 @@ in
     ];
   };
 
-  hardware.opengl = {
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-      amdvlk
-	  driversi686Linux.amdvlk
-    ];
-    driSupport = true;
-    driSupport32Bit = true;
-  };  
-  
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
