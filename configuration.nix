@@ -10,9 +10,7 @@ in
       inputs.home-manager.nixosModules.default
       ./modules/nvim/nvim-modules.nix
       ./modules/systemd.nix
-      ./modules/laptop/power_managment.nix
-      ./modules/laptop/hardware.nix
-      ./modules/laptop/bluetooth.nix
+      ./modules/pc/hardware.nix
       ./modules/audio.nix
       ./modules/udev.nix
       ./modules/hyprland.nix
