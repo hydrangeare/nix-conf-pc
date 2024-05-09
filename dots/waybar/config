@@ -1,1 +1,172 @@
-config
+// -*- mode: jsonc -*-
+{
+     "layer": "top", // Waybar at top layer
+     "position": "top", // Waybar position (top||left|right)
+    "height": 12, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 8, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+    	//"image#avatar",
+        "hyprland/window",
+        "custom/waybar-mpris"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+    	"tray",
+        "pulseaudio",
+        "network",
+		"battery",
+		"battery#bat1",
+        "cpu",
+        "memory",
+//        "custom/gpu-usage",
+        "hyprland/language",
+        "clock"
+    ],
+    // Modules configuration
+    "hyprland/workspaces" : {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{}",
+        "format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+        },
+        "persistent-workspaces": {
+            // START WORKSPACES
+    "*": 5
+            // END WORKSPACES
+        }       
+    },
+    "hyprland/window": {
+    "format": "{initialTitle}",
+    "rewrite": {
+    	//"": " ",
+    	"Mozilla Firefox": " ",
+        "Alacritty": " ",
+        "Telegram": " ",
+        "Steam": " ",
+        "Spotify - (.*)": "󰓇 ",
+        "Spotify": "󰓇 ",
+        "(.*) - Discord": "",
+        "Discord": ""
+    },
+    "separate-outputs": true,
+    "max-length": 20
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 5,
+        "layer": "top"
+    },
+    "clock": {
+		"interval": 60,
+		"format": "{:%H:%M}",
+		"max-length": 25
+},
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}%  ",
+        "interval": 2
+    },
+    "network": {
+          //"interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid}   ",
+        "format-ethernet": "{gwaddr} <span size='medium'><span font='FontAwesome'>󰈀</span></span>",
+        "tooltip-format": "{signalStrength}%     {ifname} via {gwaddr} 󰈀",
+        "format-linked": "{ifname} (No IP) 󰈀",
+        "format-disconnected": "Disconnected ⚠",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+    },
+    "battery": {
+    	"bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}   {capacity}%",
+        "format-charging": "   {capacity}%",
+        "format-plugged": "   {capacity}%",
+        "format-alt": " {icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 60
+    },
+    "battery#bat1": {
+	    "bat": "BAT1",
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}   {capacity}%",
+        "format-charging": "   {capacity}%",
+        "format-plugged": "   {capacity}%",
+        "format-alt": " {icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 60
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "",
+        "format-source":"",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "hyprland/language": {
+	    "format-en": "🇺🇸",
+	    "format-ru": "🇷🇺",
+    },
+    "image#avatar": {
+    	"path": "/home/hydrangea/Pictures/ebisu_shark.jpg",
+    	"size": 20,
+    	"interval": 500
+    },
+    "custom/gpu-usage": {
+      "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+      //"exec": "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits",
+      "format": "{}% ",
+      "return-type": "",
+      
+      "interval": 2
+    },
+	"custom/waybar-mpris": {
+	    "return-type": "json",
+	    "exec": "waybar-mpris --position --pause '   ' --play '   ' --interpolate  --order 'SYMBOL:ARTIST:TITLE:POSITION' ",
+	    "on-click": "waybar-mpris --send toggle",
+	    // This option will switch between players on right click.
+	        "on-click-right": "waybar-mpris --send player-next",
+	    // The options below will switch the selected player on scroll
+	        // "on-scroll-up": "waybar-mpris --send player-next",
+	        // "on-scroll-down": "waybar-mpris --send player-prev",
+	    // The options below will go to next/previous track on scroll
+	        // "on-scroll-up": "waybar-mpris --send next",
+	        // "on-scroll-down": "waybar-mpris --send prev",
+	    "escape": true,
+        "max-length": 50,
+        "label": " dfdfdf "
+	},
+}
