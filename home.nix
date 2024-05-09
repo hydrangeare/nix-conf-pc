@@ -7,16 +7,16 @@
       source = ./dots/p10k/p10k.zsh;
       executable = true;
     };
-
-    home.file."config/dunstrc".source = ./dots/dunst;
-    home.file."config/tofi".source = ./dots/tofi;
-    home.file."config/waybar".source = ./dots/waybar;
-    home.file."config/alacritty".source = ./dots/alacritty;
-    home.file."config/hyprland".source = ./dots/hypr;
-    home.file."config/nixpkgs".source = ./dots/nixpkgs;
-    home.file."config/fastfetch".source = ./dots/fastfetch;
-    home.file."config/kitty".source = ./dots/kitty;
-    
+    home.file.".config/dunst/dunstrc".source = ./dots/dunst/dunstrc;
+    home.file.".config/tofi/config".source = ./dots/tofi/config;
+    home.file.".config/waybar/config".source = ./dots/waybar/config;
+    home.file.".config/waybar/style.css".source = ./dots/waybar/style.css;
+    home.file.".config/alacritty/alacritty.toml".source = ./dots/alacritty/alacritty.toml;
+    home.file.".config/hypr/hyprland.conf".source = ./dots/hypr/hyprland.conf;
+    home.file.".config/hypr/hypridle.conf".source = ./dots/hypr/hypridle.conf;
+    home.file.".config/nixpkgs/config.nix".source = ./dots/nixpkgs/config.nix;
+    home.file.".config/fastfetch/config.jsonc".source = ./dots/fastfetch/config.jsonc;
+    home.file.".config/kitty/kitty.conf".source = ./dots/kitty/kitty.conf; 
 
     home.activation = {
       # https://github.com/philj56/tofi/issues/115#issuecomment-1701748297
