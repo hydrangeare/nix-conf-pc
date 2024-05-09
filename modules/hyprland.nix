@@ -4,7 +4,6 @@
 	xkb.layout = "us, ru";
 	xkb.options = "grp:alt_shift_toggle";
 	enable = true;
-	videoDrivers = ["amdgpu"];
 	displayManager.gdm = {
 		enable = true;
 		wayland = true;
