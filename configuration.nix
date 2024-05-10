@@ -20,6 +20,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.loader.timeout = 5;
+
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "16:00" ];
 
