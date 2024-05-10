@@ -88,6 +88,10 @@ in
       firefox
     ];
   };
+  
+  nix.nixPath = [
+	"nixos-config=home/${user}/.config/nixos/configuration.nix"
+  ];
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
