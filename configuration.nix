@@ -20,8 +20,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.loader.timeout = 5;
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "16:00" ];
 
   networking.hostName = "nixos";
   networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ]; 
