@@ -1,5 +1,8 @@
   #HOME_MANAGER
   { config, pkgs, lib , ... }:
+  let
+    user = "hydrangea";
+  in
   {
     home.stateVersion = "23.11"; 
 
@@ -59,7 +62,7 @@
       syntaxHighlighting.enable = true;
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch --flake /etc/nixos/.#hydrangea";
+        update = "sudo nixos-rebuild switch --flake /home/${user}/.config/nixos/.#hydrangea";
         nix-conf = "sudo nvim /etc/nixos/configuration.nix";
         hypr-conf = "nvim $HOME/.config/hypr/hyprland.conf";
         wayb-conf = "nvim $HOME/.config/waybar/config";
