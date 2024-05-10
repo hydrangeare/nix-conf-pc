@@ -10,7 +10,9 @@ in
       inputs.home-manager.nixosModules.default
       ./modules/nvim/nvim-modules.nix
       ./modules/systemd.nix
-      ./modules/pc/hardware.nix
+      ./modules/laptop/power_managment.nix
+      ./modules/laptop/hardware.nix
+      ./modules/laptop/bluetooth.nix
       ./modules/audio.nix
       ./modules/udev.nix
       ./modules/hyprland.nix
@@ -20,14 +22,13 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.loader.timeout = 5;
-
+  
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "16:00" ];
 
   networking.hostName = "nixos";
   networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ]; 
   networking.networkmanager.enable = true; #this 
-
 
   time.timeZone = "Europe/Moscow";
 
