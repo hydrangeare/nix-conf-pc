@@ -99,11 +99,8 @@ in
     ];
   
   nixpkgs.config.allowUnfree = true;
-   virtualisation.virtualbox.host.enable = true;
-   users.extraGroups.vboxusers.members = [ "${user}" ]; 
-
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  users.extraGroups.vboxusers.members = [ "${user}" ]; 
 
   environment.systemPackages = with pkgs; [
     #MAIN 
