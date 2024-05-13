@@ -88,10 +88,6 @@ in
       firefox
     ];
   };
-  
-  nix.nixPath = [
-	"nixos-config=home/${user}/.config/nixos/configuration.nix"
-  ];
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -103,6 +99,8 @@ in
     ];
   
   nixpkgs.config.allowUnfree = true;
+   virtualisation.virtualbox.host.enable = true;
+   users.extraGroups.vboxusers.members = [ "${user}" ]; 
 
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
@@ -116,10 +114,12 @@ in
 	telegram-desktop
 	mpv
 	curl
+	distrobox
 	wget
 	git
 	#unstable.osu-lazer-bin
 	osu-lazer-bin
+	librewolf
 	fastfetch
 	zsh
 	keepassxc
