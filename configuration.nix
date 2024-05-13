@@ -10,9 +10,7 @@ in
       inputs.home-manager.nixosModules.default
       ./modules/nvim/nvim-modules.nix
       ./modules/systemd.nix
-      ./modules/laptop/power_managment.nix
-      ./modules/laptop/hardware.nix
-      ./modules/laptop/bluetooth.nix
+      ./modules/pc/hardware.nix
       ./modules/audio.nix
       ./modules/udev.nix
       ./modules/hyprland.nix
@@ -22,13 +20,13 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.loader.timeout = 5;
-  
-  nix.optimise.automatic = true;
-  nix.optimise.dates = [ "16:00" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
 
   networking.hostName = "nixos";
   networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ]; 
   networking.networkmanager.enable = true; #this 
+
 
   time.timeZone = "Europe/Moscow";
 
@@ -106,8 +104,12 @@ in
   
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
   environment.systemPackages = with pkgs; [
     #MAIN 
+    	virtualbox
 	htop
 	alacritty
 	anki-bin
