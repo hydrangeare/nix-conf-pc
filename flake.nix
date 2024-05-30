@@ -20,8 +20,7 @@
    in
    {
     nixosConfigurations.hydrangea = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      
+      specialArgs = {inherit inputs; }; 
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default

@@ -5,6 +5,7 @@
   in
   {
     home.stateVersion = "23.11"; 
+    home.enableNixpkgsReleaseCheck = false;
 
     home.file.".p10k.zsh" = {
       source = ./dots/p10k/p10k.zsh;

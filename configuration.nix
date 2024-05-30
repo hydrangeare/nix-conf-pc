@@ -20,7 +20,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.loader.timeout = 5;
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelPackages = pkgs.linuxPackages_6_8;
 
 
   networking.hostName = "nixos";
@@ -99,23 +99,25 @@ in
     ];
   
   nixpkgs.config.allowUnfree = true;
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "${user}" ]; 
+
+  #virtualisation.virtualbox.host.enable = true;
+  #users.extraGroups.vboxusers.members = [ "${user}" ]; 
 
   environment.systemPackages = with pkgs; [
     #MAIN 
-    	virtualbox
+    	#virtualbox
 	htop
 	alacritty
 	anki-bin
 	telegram-desktop
+	discord
+	docker
+	podman
 	mpv
 	curl
 	distrobox
 	wget
 	git
-	#unstable.osu-lazer-bin
-	osu-lazer-bin
 	librewolf
 	fastfetch
 	zsh
@@ -191,6 +193,9 @@ in
 	xdotool
 	networkmanagerapplet
 	hypridle
+	(osu-lazer-bin.overrideAttrs (oldAttrs: {
+		version = "2024.519.1";
+	}))
 	(waybar.overrideAttrs (oldAttrs: {
 		mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];	
 	}))
