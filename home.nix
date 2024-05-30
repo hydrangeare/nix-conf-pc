@@ -22,6 +22,7 @@
     home.file.".config/hypr/config-sh/startup-hypr.sh".source = ./dots/hypr/config-sh/startup-hypr.sh;
     home.file.".config/nixpkgs/config.nix".source = ./dots/nixpkgs/config.nix;
     home.file.".config/fastfetch/config.jsonc".source = ./dots/fastfetch/config.jsonc;
+    home.file.".config/fastfetch/logos/erika_256.png".source = ./dots/fastfetch/logos/erika_256.png;
     home.file.".config/kitty/kitty.conf".source = ./dots/kitty/kitty.conf; 
 
     home.activation = {
