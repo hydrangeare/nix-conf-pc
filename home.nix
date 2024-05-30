@@ -19,7 +19,7 @@
     home.file.".config/hypr/hyprland.conf".source = ./dots/hypr/hyprland.conf;
     home.file.".config/hypr/hypridle.conf".source = ./dots/hypr/hypridle.conf;
     home.file.".config/hypr/config-sh/r_waybar.sh".source = ./dots/hypr/config-sh/r_waybar.sh;
-    home.file.".config/hypr/config-sh/starup-hypr.sh".source = ./dots/hypr/config-sh/startup-hypr.sh;
+    home.file.".config/hypr/config-sh/startup-hypr.sh".source = ./dots/hypr/config-sh/startup-hypr.sh;
     home.file.".config/nixpkgs/config.nix".source = ./dots/nixpkgs/config.nix;
     home.file.".config/fastfetch/config.jsonc".source = ./dots/fastfetch/config.jsonc;
     home.file.".config/kitty/kitty.conf".source = ./dots/kitty/kitty.conf; 
