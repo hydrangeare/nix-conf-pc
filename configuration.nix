@@ -193,9 +193,6 @@ in
 	xdotool
 	networkmanagerapplet
 	hypridle
-	(osu-lazer-bin.overrideAttrs (oldAttrs: {
-		version = "2024.519.1";
-	}))
 	(waybar.overrideAttrs (oldAttrs: {
 		mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];	
 	}))
