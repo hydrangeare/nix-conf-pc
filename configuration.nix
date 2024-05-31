@@ -131,6 +131,7 @@ in
 	dotnetPackages.Nuget
 	msbuild
 	opentabletdriver
+	osu-lazer-bin
 	ffmpeg
 	alsa-lib
 	vscodium
