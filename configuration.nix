@@ -113,6 +113,8 @@ in
 	discord
 	docker
 	podman
+	ventoy
+	mediawriter
 	mpv
 	curl
 	distrobox
@@ -124,9 +126,13 @@ in
 	keepassxc
 	gparted
 	unityhub
+	gptfdisk
 	jetbrains.rider
 	dotnet-sdk_8	
 	dotnet-runtime_8
+	mov-cli
+	python311Packages.pip
+	fzf
 	dotnet-aspnetcore_8
 	dotnetPackages.Nuget
 	msbuild
