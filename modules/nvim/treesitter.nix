@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins = {
-    treesitter = {
+    treesitter.settings = {
       enable = true;
       nixGrammars = true;
       indent = true;

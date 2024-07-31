@@ -35,14 +35,15 @@
       '';
     };
     
-#    xdg.desktopEntries = {
-#    	discord = {
-#    		name = "Discord";
-#    		genericName = "idk video messenger";
-#    		exec = "discord  --enable-features=UseOzonePlatform --ozone-platform=wayland"; 	
-#    		terminal = false;
-#    	};	
-#    };
+    xdg.desktopEntries = {
+    	firefox = {
+    		name = "Firefox";
+    		genericName = "librewolf browser";
+    		exec = "librewolf"; 	
+    		terminal = false;
+    	};	
+    };
+
     
     gtk.enable = true;
     gtk.theme.package = pkgs.graphite-gtk-theme;
@@ -61,6 +62,16 @@
     
     programs.alacritty.enable = true;
 	
+    programs.librewolf = {
+    	enable = true;
+	settings = {
+	  "webgl.disabled" = false;
+      	  "privacy.resistFingerprinting" = false;
+      	  "privacy.clearOnShutdown.history" = false;
+      	  "privacy.clearOnShutdown.cookies" = false;
+      	  "network.cookie.lifetimePolicy" = 0;
+	};
+    };
     programs.zsh = {
       enable = true;
       enableCompletion = true;

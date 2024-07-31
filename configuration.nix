@@ -16,11 +16,13 @@ in
       ./modules/hyprland.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.loader.timeout = 5;
   boot.kernelPackages = pkgs.linuxPackages_6_8;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
 
 
   networking.hostName = "nixos";
@@ -31,6 +33,19 @@ in
   time.timeZone = "Europe/Moscow";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  console.font = "Lat2-Terminus16";
+  console.keyMap = "us";
+
+  i18n.inputMethod = {
+  type = "fcitx5";
+  enable = true;
+  fcitx5.waylandFrontend = true;
+  fcitx5.addons = with pkgs; [
+    fcitx5-gtk
+    fcitx5-mozc
+    fcitx5-configtool
+    ];
+  };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -53,16 +68,18 @@ in
       fira-code
       fira-code-symbols
       font-awesome
-      liberation_ttf
-      mplus-outline-fonts.githubRelease
       nerdfonts
+      dejavu_fonts
       noto-fonts
       noto-fonts-emoji
       ubuntu_font_family
-      vazir-fonts
     ];
   };
-  
+
+  environment.variables = {
+    IBUS_ENABLE_SYNC_MODE = "1";
+    GLFW_IM_MODULE = "ibus";
+  };
   environment.sessionVariables = {
   #NIXOS_OZONE_WL = "1";
   WLR_NO_HARDWARE_CURSORS = "1";
@@ -85,7 +102,6 @@ in
     description = "hydrangea";
     extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
-      firefox
     ];
   };
 
@@ -127,7 +143,6 @@ in
 	gparted
 	unityhub
 	gptfdisk
-	jetbrains.rider
 	dotnet-sdk_8	
 	dotnet-runtime_8
 	mov-cli
